@@ -224,7 +224,7 @@ export function RevenueOverview({ projects, companyRevenue, currentUser }: Reven
                   <DollarSign className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl">₱{latestCompanyData.totalExpenses.toLocaleString()}</div>
+                  <div className="text-2xl">₱{latestCompanyData.totalExpenses ? latestCompanyData.totalExpenses.toLocaleString() : 0}</div>
                   <p className="text-xs text-muted-foreground">
                     Operating costs
                   </p>
@@ -238,7 +238,7 @@ export function RevenueOverview({ projects, companyRevenue, currentUser }: Reven
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl text-green-500">
-                    ₱{latestCompanyData.netProfit.toLocaleString()}
+                    ₱{latestCompanyData.netProfit ? latestCompanyData.netProfit.toLocaleString() : 0}
                   </div>
                   <p className="text-xs text-muted-foreground">
                     {latestCompanyData.projectsCompleted} projects completed
