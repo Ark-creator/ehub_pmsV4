@@ -160,7 +160,7 @@ export function ProjectArchives({
                 <SelectContent>
                   <SelectItem value="all">All Schools/Clients</SelectItem>
                   {schools.map(school => (
-                    <SelectItem key={school} value={school}>
+                    <SelectItem value={school || 'no school found'} key={school}>
                       {school}
                     </SelectItem>
                   ))}
