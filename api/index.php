@@ -2,6 +2,26 @@
 
 // Simple PHP API router to replace Node/Express backend
 
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// 2. Handle Preflight Requests (OPTIONS method)
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+// 3. Require your Config (Database Connection)
+// Make sure this file actually exists!
+if (!file_exists(__DIR__ . '/config.php')) {
+    http_response_code(500);
+    echo json_encode(["error" => "Configuration file missing"]);
+    exit;
+}
+
+
 require __DIR__ . '/config.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -744,5 +764,3 @@ function handle_create_client(PDO $pdo): void
 
     json_response(['user' => $user]);
 }
-
-

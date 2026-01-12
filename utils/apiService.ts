@@ -1,7 +1,6 @@
 // API Service for PHP backend (cPanel/shared hosting friendly)
-// Use VITE_API_URL when provided, otherwise default to same-origin `/api`
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
-
+// Use VITE_API_URL when provided, otherwise default to same-origin /api
+const API_BASE_URL = '/api'; 
 interface ApiResponse<T> {
     data?: T;
     error?: string;
@@ -208,25 +207,6 @@ class ApiService {
     // Health check
     async healthCheck(): Promise<ApiResponse<any>> {
         return this.request('/health');
-    }
-
-    // Assignment Broadcast & Response
-    async broadcastToFabricators(projectId: string, message?: string): Promise<ApiResponse<any>> {
-        return this.request('/projects/broadcast-fabricators', {
-            method: 'POST',
-            body: JSON.stringify({ projectId, message }),
-        });
-    }
-
-    async respondToAssignment(
-        projectId: string,
-        response: 'accepted' | 'declined',
-        assignmentId?: string
-    ): Promise<ApiResponse<any>> {
-        return this.request('/projects/respond-assignment', {
-            method: 'POST',
-            body: JSON.stringify({ projectId, response, assignmentId }),
-        });
     }
 }
 

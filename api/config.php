@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Database config – adjust to match your phpMyAdmin/MySQL setup if needed
 $dbHost = getenv('DB_HOST') ?: 'localhost';
-$dbUser = getenv('DB_USER') ?: 'ehubph_charles';
-$dbPass = getenv('DB_PASSWORD') ?: '@Charles2912';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPass = getenv('DB_PASSWORD') ?: '';
 $dbName = getenv('DB_NAME') ?: 'ehubph_pms';
 $dbPort = getenv('DB_PORT') ?: '3306';
 
