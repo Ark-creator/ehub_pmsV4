@@ -1,0 +1,7 @@
+﻿New password hash for 'admin123':
+$2y$10$4R8v0YVjUO021uPO5jEpzewFmpJCE1oZx9clMP9jVElCwM99JiXOG
+
+SQL to update admin user:
+UPDATE users SET password_hash = '$2y$10$4R8v0YVjUO021uPO5jEpzewFmpJCE1oZx9clMP9jVElCwM99JiXOG' WHERE email = 'admin@ehub.com';
+
+Γ£ô Hash verification successful!

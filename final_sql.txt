@@ -1,0 +1,1 @@
+UPDATE users SET password_hash = '$2y$10$OuAioY4C0cevR2I1Drd6QuvJyk5c75aybyrThmXCclkHY2LmhAh0m' WHERE email = 'admin@ehub.com';
