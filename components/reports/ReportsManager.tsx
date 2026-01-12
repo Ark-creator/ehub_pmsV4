@@ -601,7 +601,7 @@ export function ReportsManager({
                     <SelectValue placeholder="Select a project or leave blank for all projects" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Projects</SelectItem>
+                    <SelectItem value="all">All Projects</SelectItem>
                     {projects
                       .filter(p => currentUser.role === 'admin' || p.supervisorId === currentUser.id)
                       .map(project => (

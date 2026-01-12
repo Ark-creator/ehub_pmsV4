@@ -213,7 +213,7 @@ export function RevenueOverview({ projects, companyRevenue, currentUser }: Reven
                 <CardContent>
                   <div className="text-2xl">₱{latestCompanyData.totalRevenue.toLocaleString()}</div>
                   <p className="text-xs text-muted-foreground">
-                    Q{latestCompanyData.quarter} {latestCompanyData.year}
+                    {latestCompanyData.quarter} {latestCompanyData.year}
                   </p>
                 </CardContent>
               </Card>
