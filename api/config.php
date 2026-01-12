@@ -1,25 +1,29 @@
 <?php
 
+$allowed_origins = ['http://localhost:3000', 'http://localhost:5173']; 
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-// Start session for auth
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+if (in_array($origin, $allowed_origins)) {
+    header("Access-Control-Allow-Origin: $origin");
+    header('Access-Control-Allow-Credentials: true');
 }
-
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
+// Handle Preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
 }
 
+// 2. Start Session AFTER headers are ready
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 // Database config – adjust to match your phpMyAdmin/MySQL setup if needed
 $dbHost = getenv('DB_HOST') ?: 'localhost';
-$dbUser = getenv('DB_USER') ?: 'ehubph_charles';
-$dbPass = getenv('DB_PASSWORD') ?: '@Charles2912';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPass = getenv('DB_PASSWORD') ?: '';
 $dbName = getenv('DB_NAME') ?: 'ehubph_pms';
 $dbPort = getenv('DB_PORT') ?: '3306';
 

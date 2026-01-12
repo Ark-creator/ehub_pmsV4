@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ehubph_pms`
 --
-CREATE DATABASE IF NOT EXISTS `ehubph_pms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ehubph_pms`;
+-- CREATE DATABASE IF NOT EXISTS `ehubph_pms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+-- USE `ehubph_pms`;
 
 -- --------------------------------------------------------
 
