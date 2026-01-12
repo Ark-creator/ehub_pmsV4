@@ -16,6 +16,7 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+<<<<<<< HEAD
 
     # Allow Authorization header to pass to PHP (Critical for APIs)
     RewriteCond %{HTTP:Authorization} .
@@ -26,5 +27,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     
     # Send everything else to index.php
+=======
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+>>>>>>> 7da0366a6c5d9d63b6c0d8c1d792de406a470171
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
